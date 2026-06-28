@@ -1,4 +1,4 @@
-import Hero from '../components/sections/Hero'
+﻿import Hero from '../components/sections/Hero'
 import BrandsStrip from '../components/sections/BrandsStrip'
 import Stats from '../components/sections/Stats'
 import Features from '../components/sections/Features'
@@ -90,3 +90,4 @@ export default function Home() {
     </main>
   )
 }
+

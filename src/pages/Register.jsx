@@ -49,17 +49,17 @@ export default function Register() {
   const iconCls = 'absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-white/30'
 
   return (
-    <div className="min-h-screen flex items-center justify-center relative bg-[#04121C]">
+    <div className="min-h-screen flex items-center justify-center relative bg-[#0C0003]">
       <div className="absolute inset-0 grid-bg opacity-60" />
-      <div className="absolute top-1/4 right-1/4 w-80 h-80 rounded-full" style={{ background: 'rgba(138,255,255,0.18)', filter: 'blur(110px)' }} />
-      <div className="absolute bottom-1/4 left-1/4 w-64 h-64 rounded-full" style={{ background: 'rgba(0,180,230,0.14)', filter: 'blur(90px)' }} />
+      <div className="absolute top-1/4 right-1/4 w-80 h-80 rounded-full" style={{ background: 'rgba(255,34,34,0.18)', filter: 'blur(110px)' }} />
+      <div className="absolute bottom-1/4 left-1/4 w-64 h-64 rounded-full" style={{ background: 'rgba(200,0,0,0.14)', filter: 'blur(90px)' }} />
       <div className="noise-overlay" />
 
       <div className="relative w-full max-w-lg px-4 py-20">
         {/* Logo */}
         <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} className="flex justify-center mb-10">
           <Link to="/" className="flex items-center gap-2.5">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-400 to-cyan-500 flex items-center justify-center shadow-[0_0_20px_rgba(138,255,255,0.35)]">
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-400 to-cyan-500 flex items-center justify-center shadow-[0_0_20px_rgba(255,34,34,0.35)]">
               <Play className="w-5 h-5 fill-current ml-0.5" style={{ color: '#071C2F' }} />
             </div>
             <span className="font-heading font-extrabold text-xl text-white">Creators<span className="text-gradient-pure">Club</span></span>
@@ -209,3 +209,4 @@ export default function Register() {
     </div>
   )
 }
+

@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useCallback } from 'react'
+﻿import { createContext, useContext, useState, useCallback } from 'react'
 import { authService } from '../services/auth'
 
 const AuthContext = createContext(null)
@@ -40,8 +40,14 @@ export function AuthProvider({ children }) {
     return updated
   }, [])
 
+  const enrollCourse = useCallback(async (courseId) => {
+    const updated = await authService.enrollCourse(courseId)
+    setUser(updated)
+    return updated
+  }, [])
+
   return (
-    <AuthContext.Provider value={{ user, loading, login, register, logout, updateUser, isAuthenticated: !!user }}>
+    <AuthContext.Provider value={{ user, loading, login, register, logout, updateUser, enrollCourse, isAuthenticated: !!user }}>
       {children}
     </AuthContext.Provider>
   )
@@ -52,3 +58,4 @@ export const useAuth = () => {
   if (!ctx) throw new Error('useAuth must be used inside AuthProvider')
   return ctx
 }
+

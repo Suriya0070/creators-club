@@ -1,4 +1,4 @@
-import { useState } from 'react'
+﻿import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Send, Mail, Phone, MapPin, MessageCircle, CheckCircle } from 'lucide-react'
 import { AnimatedSection, AnimatedGroup, AnimatedItem } from '../ui/AnimatedSection'
@@ -143,3 +143,4 @@ export default function Contact() {
     </section>
   )
 }
+

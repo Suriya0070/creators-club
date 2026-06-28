@@ -1,4 +1,4 @@
-import { useState } from 'react'
+﻿import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Eye, Play } from 'lucide-react'
 import { AnimatedSection } from '../ui/AnimatedSection'
@@ -89,3 +89,4 @@ export default function Portfolio() {
     </section>
   )
 }
+

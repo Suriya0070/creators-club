@@ -5,21 +5,21 @@ export default {
     extend: {
       colors: {
         cyan: {
-          400: '#8AFFFF',
-          500: '#00D4FF',
-          600: '#00AAEE',
+          400: '#FF2222',
+          500: '#CC0000',
+          600: '#990000',
         },
         navy: {
-          900: '#071C2F',
-          800: '#0D2845',
-          700: '#123460',
+          900: '#0C0003',
+          800: '#1A0005',
+          700: '#2D0008',
         },
         dark: {
-          900: '#070B14',
-          800: '#0F172A',
-          700: '#111827',
-          600: '#1E293B',
-          500: '#334155',
+          900: '#070003',
+          800: '#0F0005',
+          700: '#180008',
+          600: '#2A000A',
+          500: '#400010',
         },
         glass: 'rgba(255,255,255,0.05)',
       },
@@ -30,13 +30,13 @@ export default {
         mono: ['"JetBrains Mono"', 'monospace'],
       },
       backgroundImage: {
-        'cyan-gradient': 'linear-gradient(135deg, #8AFFFF 0%, #00D4FF 50%, #00AAEE 100%)',
-        'dark-gradient': 'linear-gradient(180deg, #071C2F 0%, #0F172A 50%, #111827 100%)',
-        'glow-cyan': 'radial-gradient(ellipse at center, rgba(138,255,255,0.15) 0%, transparent 70%)',
+        'cyan-gradient': 'linear-gradient(135deg, #FF2222 0%, #CC0000 50%, #990000 100%)',
+        'dark-gradient': 'linear-gradient(180deg, #0C0003 0%, #0F0005 50%, #180008 100%)',
+        'glow-cyan': 'radial-gradient(ellipse at center, rgba(255,34,34,0.15) 0%, transparent 70%)',
       },
       boxShadow: {
-        'cyan-glow': '0 0 30px rgba(138,255,255,0.3)',
-        'cyan-glow-lg': '0 0 60px rgba(138,255,255,0.2)',
+        'cyan-glow': '0 0 30px rgba(255,34,34,0.3)',
+        'cyan-glow-lg': '0 0 60px rgba(255,34,34,0.2)',
         glass: '0 8px 32px rgba(0,0,0,0.4)',
       },
       animation: {

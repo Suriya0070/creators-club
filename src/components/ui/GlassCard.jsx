@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion'
+﻿import { motion } from 'framer-motion'
 
 export function GlassCard({ children, className = '', hover = true, glow = false, onClick }) {
   return (
@@ -43,3 +43,4 @@ export function LoadingSkeleton({ lines = 3, className = '' }) {
     </div>
   )
 }
+

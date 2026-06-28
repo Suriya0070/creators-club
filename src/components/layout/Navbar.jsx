@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+﻿import { useState, useEffect } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, Play, LogOut, User, LayoutDashboard } from 'lucide-react'
@@ -209,3 +209,4 @@ export default function Navbar() {
     </>
   )
 }
+

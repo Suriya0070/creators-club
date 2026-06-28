@@ -11,14 +11,14 @@ function CourseCard({ course, featured = false }) {
 
   return (
     <motion.div
-      className={`glass rounded-3xl overflow-hidden ${featured ? 'border-cyan-400/20 shadow-[0_0_40px_rgba(0,217,255,0.1)]' : ''}`}
+      className={`glass rounded-3xl overflow-hidden ${featured ? 'border-cyan-400/20 shadow-[0_0_40px_rgba(255,34,34,0.1)]' : ''}`}
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6 }}
     >
       {featured && (
-        <div className="bg-gradient-to-r from-cyan-400 to-blue-500 text-center py-2 text-xs font-bold text-navy-900 uppercase tracking-widest">
+        <div className="bg-gradient-to-r from-cyan-400 to-cyan-500 text-center py-2 text-xs font-bold text-white uppercase tracking-widest">
           â­ Most Popular
         </div>
       )}
@@ -94,7 +94,7 @@ function CourseCard({ course, featured = false }) {
               </div>
               <span className="text-green-400 text-xs font-semibold">{Math.round((1 - course.price / course.originalPrice) * 100)}% OFF â€” Limited time</span>
             </div>
-            <Link to="/register" className="btn-primary text-sm px-6 py-3">
+            <Link to={`/enroll/${course.slug}`} className="btn-primary text-sm px-6 py-3">
               Enroll Now <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
@@ -156,7 +156,7 @@ function CourseCard({ course, featured = false }) {
 
 export default function CoursesPage() {
   return (
-    <div className="min-h-screen bg-[#04121C] pt-24 pb-20">
+    <div className="min-h-screen bg-[#0C0003] pt-24 pb-20">
       <div className="absolute inset-0 grid-bg opacity-30" />
       <div className="noise-overlay" />
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-400/5 rounded-full filter blur-[120px]" />
@@ -195,3 +195,4 @@ export default function CoursesPage() {
     </div>
   )
 }
+

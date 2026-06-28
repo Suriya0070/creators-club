@@ -1,4 +1,4 @@
-import { AnimatedSection } from '../ui/AnimatedSection'
+﻿import { AnimatedSection } from '../ui/AnimatedSection'
 
 const BRANDS = ['Adobe Premiere', 'DaVinci Resolve', 'After Effects', 'CapCut', 'Final Cut Pro', 'Audition', 'Fusion', 'VN Editor', 'Adobe Premiere', 'DaVinci Resolve', 'After Effects', 'CapCut', 'Final Cut Pro', 'Audition', 'Fusion', 'VN Editor']
 
@@ -24,3 +24,4 @@ export default function BrandsStrip() {
     </section>
   )
 }
+

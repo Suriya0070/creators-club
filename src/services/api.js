@@ -1,4 +1,4 @@
-import axios from 'axios'
+﻿import axios from 'axios'
 
 const API_BASE = import.meta.env.VITE_API_URL || 'https://api.creatorsclub.in/v1'
 
@@ -27,3 +27,4 @@ api.interceptors.response.use(
 )
 
 export default api
+

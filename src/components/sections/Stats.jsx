@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+﻿import { useEffect, useRef, useState } from 'react'
 import { AnimatedSection, AnimatedGroup, AnimatedItem } from '../ui/AnimatedSection'
 import { STATS } from '../../data/testimonials'
 
@@ -55,3 +55,4 @@ export default function Stats() {
     </section>
   )
 }
+

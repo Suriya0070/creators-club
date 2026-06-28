@@ -1,4 +1,4 @@
-import { StrictMode, lazy, Suspense } from 'react'
+﻿import { StrictMode, lazy, Suspense } from 'react'
 import { createRoot } from 'react-dom/client'
 import { createBrowserRouter, RouterProvider, Navigate } from 'react-router-dom'
 import './index.css'
@@ -11,14 +11,15 @@ const Register = lazy(() => import('./pages/Register.jsx'))
 const ForgotPassword = lazy(() => import('./pages/ForgotPassword.jsx'))
 const Dashboard = lazy(() => import('./pages/Dashboard.jsx'))
 const CoursesPage = lazy(() => import('./pages/CoursesPage.jsx'))
+const EnrollPage = lazy(() => import('./pages/EnrollPage.jsx'))
 const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy.jsx'))
 const Terms = lazy(() => import('./pages/Terms.jsx'))
 
 function LoadingFallback() {
   return (
-    <div className="min-h-screen flex items-center justify-center" style={{ background: '#04121C' }}>
+    <div className="min-h-screen flex items-center justify-center" style={{ background: '#0C0003' }}>
       <div className="flex flex-col items-center gap-3">
-        <div className="w-10 h-10 border-2 rounded-full animate-spin" style={{ borderColor: 'rgba(138,255,255,0.2)', borderTopColor: '#8AFFFF' }} />
+        <div className="w-10 h-10 border-2 rounded-full animate-spin" style={{ borderColor: 'rgba(255,34,34,0.2)', borderTopColor: '#FF2222' }} />
         <p className="text-white/30 text-sm">Loading...</p>
       </div>
     </div>
@@ -87,6 +88,14 @@ const router = createBrowserRouter([
         path: 'terms',
         element: <Suspense fallback={<LoadingFallback />}><Terms /></Suspense>,
       },
+      {
+        path: 'enroll/:slug',
+        element: (
+          <Suspense fallback={<LoadingFallback />}>
+            <PrivateRoute><EnrollPage /></PrivateRoute>
+          </Suspense>
+        ),
+      },
       { path: '*', element: <Navigate to="/" replace /> },
     ],
   },
@@ -103,3 +112,4 @@ createRoot(document.getElementById('root')).render(
     </AuthProvider>
   </StrictMode>
 )
+

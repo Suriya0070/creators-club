@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+﻿import { Link } from 'react-router-dom'
 import { Play, Mail, Phone, MapPin, ExternalLink } from 'lucide-react'
 
 const FOOTER_LINKS = {
@@ -119,3 +119,4 @@ export default function Footer() {
     </footer>
   )
 }
+

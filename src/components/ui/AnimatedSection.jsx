@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion'
+﻿import { motion } from 'framer-motion'
 
 const variants = {
   fadeUp: {
@@ -69,3 +69,4 @@ export function AnimatedItem({ children, className = '', variant = 'fadeUp' }) {
     </motion.div>
   )
 }
+

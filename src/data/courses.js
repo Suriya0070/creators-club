@@ -1,4 +1,4 @@
-export const COURSES = [
+﻿export const COURSES = [
   {
     id: 1,
     slug: 'beginner-editing-mastery',
@@ -12,7 +12,7 @@ export const COURSES = [
     projects: 8,
     badge: 'Most Popular',
     badgeColor: 'cyan',
-    color: '#8AFFFF',
+    color: '#FF2222',
     description: 'Perfect for absolute beginners. Learn the fundamentals of video editing with Adobe Premiere Pro and CapCut. Start creating engaging reels and short-form content from day one.',
     thumbnail: 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=600&q=80',
     outcomes: [
@@ -123,3 +123,4 @@ export const COURSES = [
 
 export const getCourseBySlug = (slug) => COURSES.find(c => c.slug === slug)
 export const getFeaturedCourses = () => COURSES
+

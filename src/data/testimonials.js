@@ -1,4 +1,4 @@
-export const TESTIMONIALS = [
+﻿export const TESTIMONIALS = [
   {
     id: 1,
     name: 'Riya Patel',
@@ -146,3 +146,4 @@ export const STATS = [
   { value: 92, suffix: '%', label: 'Placement Rate', description: 'Get hired within 90 days' },
   { value: 3, suffix: ' Courses', label: 'Specialized Programs', description: 'Beginner to Pro' },
 ]
+

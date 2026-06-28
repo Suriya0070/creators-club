@@ -1,15 +1,15 @@
-import { motion } from 'framer-motion'
+﻿import { motion } from 'framer-motion'
 import { Video, Users, Award, Zap, Globe, Clock, MessageCircle, TrendingUp } from 'lucide-react'
 import { AnimatedSection, AnimatedGroup, AnimatedItem } from '../ui/AnimatedSection'
 import { CyanBadge } from '../ui/GlassCard'
 
 const FEATURES = [
-  { Icon: Video, title: 'HD Video Lessons', desc: '260+ professional lessons in 4K resolution with downloadable project files.', color: '#8AFFFF' },
+  { Icon: Video, title: 'HD Video Lessons', desc: '260+ professional lessons in 4K resolution with downloadable project files.', color: '#FF2222' },
   { Icon: Users, title: 'Live Mentorship', desc: 'Weekly live Q&A sessions with industry professionals actively working in the field.', color: '#A855F7' },
   { Icon: Award, title: 'Industry Certificate', desc: 'Recognized certificate upon completion, trusted by top brands and agencies.', color: '#F59E0B' },
   { Icon: Zap, title: 'Hands-on Projects', desc: 'Real-world projects with every module — build a portfolio as you learn.', color: '#22C55E' },
   { Icon: Globe, title: 'Lifetime Access', desc: 'Purchase once, access forever. Including all future updates and new lessons.', color: '#EF4444' },
-  { Icon: Clock, title: 'Learn at Your Pace', desc: 'No deadlines, no pressure. Learn on your schedule, revisit any lesson anytime.', color: '#8AFFFF' },
+  { Icon: Clock, title: 'Learn at Your Pace', desc: 'No deadlines, no pressure. Learn on your schedule, revisit any lesson anytime.', color: '#FF2222' },
   { Icon: MessageCircle, title: 'Private Community', desc: 'Join 1,500+ creators in our exclusive Discord. Get feedback, find collaborators.', color: '#A855F7' },
   { Icon: TrendingUp, title: 'Career Support', desc: 'Resume review, portfolio critique, and job leads shared weekly in the community.', color: '#F59E0B' },
 ]
@@ -54,3 +54,4 @@ export default function Features() {
     </section>
   )
 }
+

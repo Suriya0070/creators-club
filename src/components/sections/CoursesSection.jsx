@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+﻿import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { Clock, BookOpen, Star, ArrowRight, CheckCircle, Zap } from 'lucide-react'
 import { AnimatedSection, AnimatedGroup, AnimatedItem } from '../ui/AnimatedSection'
@@ -102,7 +102,7 @@ export default function CoursesSection() {
                       </span>
                     </div>
                     <Link
-                      to={`/courses`}
+                      to={`/enroll/${course.slug}`}
                       className="flex items-center gap-1.5 text-sm font-semibold px-4 py-2 rounded-full transition-all duration-200"
                       style={{ background: `${course.color}15`, color: course.color, border: `1px solid ${course.color}30` }}
                       onMouseEnter={(e) => {
@@ -132,3 +132,4 @@ export default function CoursesSection() {
     </section>
   )
 }
+

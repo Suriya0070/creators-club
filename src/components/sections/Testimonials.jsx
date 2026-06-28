@@ -1,4 +1,4 @@
-import { useState } from 'react'
+﻿import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Quote, ChevronLeft, ChevronRight, BadgeCheck } from 'lucide-react'
 import { AnimatedSection, AnimatedGroup, AnimatedItem } from '../ui/AnimatedSection'
@@ -122,3 +122,4 @@ export default function Testimonials() {
     </section>
   )
 }
+

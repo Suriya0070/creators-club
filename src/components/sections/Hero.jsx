@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+﻿import { useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { Play, ArrowRight, Star, Users, Award } from 'lucide-react'
@@ -40,26 +40,26 @@ export default function Hero() {
   return (
     <section ref={containerRef} className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Deep teal-cyan background */}
-      <div className="absolute inset-0" style={{ background: 'linear-gradient(160deg, #061C28 0%, #041830 40%, #051220 70%, #04121C 100%)' }} />
+      <div className="absolute inset-0" style={{ background: 'linear-gradient(160deg, #1A0005 0%, #120003 40%, #0A0002 70%, #0C0003 100%)' }} />
       <div className="absolute inset-0 grid-bg" style={{ opacity: 0.7 }} />
 
       {/* Large visible cyan blobs — MUCH more opaque now */}
       <div
         className="absolute -top-32 -left-32 w-[600px] h-[600px] rounded-full animate-blob"
-        style={{ background: 'rgba(138, 255, 255, 0.18)', filter: 'blur(100px)' }}
+        style={{ background: 'rgba(255, 34, 34, 0.18)', filter: 'blur(100px)' }}
       />
       <div
         className="absolute top-1/3 right-0 w-[500px] h-[500px] rounded-full animate-blob animation-delay-2000"
-        style={{ background: 'rgba(0, 180, 230, 0.15)', filter: 'blur(110px)' }}
+        style={{ background: 'rgba(200,0,0, 0.15)', filter: 'blur(110px)' }}
       />
       <div
         className="absolute bottom-0 left-1/3 w-[400px] h-[400px] rounded-full animate-blob animation-delay-4000"
-        style={{ background: 'rgba(138, 255, 255, 0.12)', filter: 'blur(90px)' }}
+        style={{ background: 'rgba(255, 34, 34, 0.12)', filter: 'blur(90px)' }}
       />
       {/* Central glow */}
       <div
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] rounded-full pointer-events-none"
-        style={{ background: 'radial-gradient(ellipse, rgba(138,255,255,0.08) 0%, transparent 70%)' }}
+        style={{ background: 'radial-gradient(ellipse, rgba(255,34,34,0.08) 0%, transparent 70%)' }}
       />
 
       {/* Floating particles */}
@@ -67,7 +67,7 @@ export default function Hero() {
         <motion.div
           key={p.id}
           className="absolute rounded-full"
-          style={{ left: `${p.x}%`, top: `${p.y}%`, width: p.size, height: p.size, background: '#8AFFFF', opacity: 0.4 }}
+          style={{ left: `${p.x}%`, top: `${p.y}%`, width: p.size, height: p.size, background: '#FF2222', opacity: 0.4 }}
           animate={{ y: [-10, 10, -10], opacity: [0.25, 0.6, 0.25] }}
           transition={{ duration: p.duration, delay: p.delay, repeat: Infinity, ease: 'easeInOut' }}
         />
@@ -133,7 +133,7 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.75 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-14"
         >
-          <Link to="/courses" className="btn-primary text-base px-8 py-4" style={{ boxShadow: '0 0 50px rgba(138,255,255,0.45)' }}>
+          <Link to="/courses" className="btn-primary text-base px-8 py-4" style={{ boxShadow: '0 0 50px rgba(255,34,34,0.45)' }}>
             Explore Courses <ArrowRight className="w-5 h-5" />
           </Link>
           <motion.a
@@ -206,3 +206,4 @@ export default function Hero() {
     </section>
   )
 }
+

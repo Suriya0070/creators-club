@@ -38,11 +38,11 @@ export default function Login() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center relative bg-[#04121C]">
+    <div className="min-h-screen flex items-center justify-center relative bg-[#0C0003]">
       {/* Background */}
       <div className="absolute inset-0 grid-bg opacity-60" />
-      <div className="absolute top-1/4 left-1/4 w-80 h-80 rounded-full" style={{ background: 'rgba(138,255,255,0.18)', filter: 'blur(110px)' }} />
-      <div className="absolute bottom-1/4 right-1/4 w-64 h-64 rounded-full" style={{ background: 'rgba(0,180,230,0.14)', filter: 'blur(90px)' }} />
+      <div className="absolute top-1/4 left-1/4 w-80 h-80 rounded-full" style={{ background: 'rgba(255,34,34,0.18)', filter: 'blur(110px)' }} />
+      <div className="absolute bottom-1/4 right-1/4 w-64 h-64 rounded-full" style={{ background: 'rgba(200,0,0,0.14)', filter: 'blur(90px)' }} />
       <div className="noise-overlay" />
 
       <div className="relative w-full max-w-md px-4 py-20">
@@ -148,3 +148,4 @@ export default function Login() {
     </div>
   )
 }
+

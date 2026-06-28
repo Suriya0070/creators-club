@@ -1,4 +1,4 @@
-import { useState } from 'react'
+﻿import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { Play, BookOpen, Award, Download, User, LogOut, LayoutDashboard, ChevronRight, Lock, CheckCircle, Mail, Phone, Calendar } from 'lucide-react'
@@ -15,7 +15,7 @@ const NAV_ITEMS = [
   { icon: User, label: 'Profile', id: 'profile' },
 ]
 
-function StatCard({ value, label, color = '#8AFFFF' }) {
+function StatCard({ value, label, color = '#FF2222' }) {
   return (
     <div className="glass rounded-2xl p-5 text-center">
       <div className="font-heading font-extrabold text-3xl mb-1" style={{ color }}>{value}</div>
@@ -37,7 +37,7 @@ function CourseCard({ course }) {
       <div className="p-3">
         <h3 className="font-heading font-bold text-xs text-white mb-1 line-clamp-1">{course.title}</h3>
         <div className="text-white/40 text-[11px] mb-2">{course.duration} · {course.lessons} lessons</div>
-        <Link to="/courses" className="block text-center text-[11px] font-semibold py-1.5 rounded-lg glass border border-white/10 text-cyan-400 hover:border-cyan-400/30 transition-all">
+        <Link to={`/enroll/${course.slug}`} className="block text-center text-[11px] font-semibold py-1.5 rounded-lg glass border border-white/10 text-cyan-400 hover:border-cyan-400/30 transition-all">
           Enroll — ₹{course.price.toLocaleString('en-IN')}
         </Link>
       </div>
@@ -68,7 +68,7 @@ export default function Dashboard() {
           <div className="space-y-6">
             {/* ── Account confirmed banner ── */}
             <AnimatedSection>
-              <div className="glass rounded-2xl p-5 border border-cyan-400/20" style={{ background: 'rgba(138,255,255,0.04)' }}>
+              <div className="glass rounded-2xl p-5 border border-cyan-400/20" style={{ background: 'rgba(255,34,34,0.04)' }}>
                 <div className="flex items-start gap-4">
                   <img
                     src={user?.avatar}
@@ -132,7 +132,7 @@ export default function Dashboard() {
                     { step: '3', label: 'Complete a project', desc: 'Build real work for your portfolio', link: '/courses', cta: 'View Projects' },
                   ].map((item) => (
                     <div key={item.step} className="flex items-start gap-3 p-3 rounded-xl" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.05)' }}>
-                      <div className="w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold shrink-0 mt-0.5" style={{ background: 'rgba(138,255,255,0.12)', border: '1px solid rgba(138,255,255,0.25)', color: '#8AFFFF' }}>
+                      <div className="w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold shrink-0 mt-0.5" style={{ background: 'rgba(255,34,34,0.12)', border: '1px solid rgba(255,34,34,0.25)', color: '#FF2222' }}>
                         {item.step}
                       </div>
                       <div className="flex-1">
@@ -235,9 +235,9 @@ export default function Dashboard() {
   }
 
   return (
-    <div className="min-h-screen flex flex-col" style={{ background: '#04121C' }}>
+    <div className="min-h-screen flex flex-col" style={{ background: '#0C0003' }}>
       {/* Subtle glow */}
-      <div className="fixed top-0 right-0 w-[400px] h-[400px] rounded-full pointer-events-none" style={{ background: 'rgba(138,255,255,0.06)', filter: 'blur(120px)' }} />
+      <div className="fixed top-0 right-0 w-[400px] h-[400px] rounded-full pointer-events-none" style={{ background: 'rgba(255,34,34,0.06)', filter: 'blur(120px)' }} />
       <div className="absolute inset-0 grid-bg opacity-25" style={{ position: 'fixed' }} />
       <div className="noise-overlay" />
 
@@ -245,7 +245,7 @@ export default function Dashboard() {
       <header className="sticky top-0 z-40 glass-strong border-b border-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-cyan-400 to-cyan-500 flex items-center justify-center" style={{ boxShadow: '0 0 15px rgba(138,255,255,0.3)' }}>
+            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-cyan-400 to-cyan-500 flex items-center justify-center" style={{ boxShadow: '0 0 15px rgba(255,34,34,0.3)' }}>
               <Play className="w-3.5 h-3.5 fill-current" style={{ color: '#071C2F' }} />
             </div>
             <span className="font-heading font-extrabold text-base text-white">Creators<span className="text-gradient-pure">Club</span></span>
@@ -267,10 +267,10 @@ export default function Dashboard() {
                 onClick={() => setActiveSection(id)}
                 className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 ${
                   activeSection === id
-                    ? 'text-[#04121C] font-bold'
+                    ? 'text-white font-bold'
                     : 'text-white/60 hover:text-white hover:bg-white/5'
                 }`}
-                style={activeSection === id ? { background: '#8AFFFF', boxShadow: '0 0 15px rgba(138,255,255,0.3)' } : {}}
+                style={activeSection === id ? { background: '#FF2222', boxShadow: '0 0 15px rgba(255,34,34,0.3)' } : {}}
               >
                 <Icon className="w-4 h-4" />
                 {label}
@@ -306,3 +306,4 @@ export default function Dashboard() {
     </div>
   )
 }
+

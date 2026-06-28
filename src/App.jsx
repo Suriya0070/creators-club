@@ -1,11 +1,11 @@
-import { Toaster } from 'react-hot-toast'
+﻿import { Toaster } from 'react-hot-toast'
 import { Outlet, useLocation } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
 import Navbar from './components/layout/Navbar'
 import Footer from './components/layout/Footer'
 import { useEffect } from 'react'
 
-const NO_LAYOUT_PATHS = ['/login', '/register', '/forgot-password', '/dashboard']
+const NO_LAYOUT_PATHS = ['/login', '/register', '/forgot-password', '/dashboard', '/enroll']
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -41,7 +41,7 @@ export default function App() {
           style: {
             background: '#0F172A',
             color: '#F8FAFC',
-            border: '1px solid rgba(0,217,255,0.2)',
+            border: '1px solid rgba(255,34,34,0.2)',
             borderRadius: '12px',
             fontFamily: '"Inter", sans-serif',
             fontSize: '14px',
@@ -51,3 +51,4 @@ export default function App() {
     </>
   )
 }
+

@@ -1,4 +1,4 @@
-const STORAGE_KEYS = { TOKEN: 'cc_token', USER: 'cc_user', USERS_DB: 'cc_users_db' }
+﻿const STORAGE_KEYS = { TOKEN: 'cc_token', USER: 'cc_user', USERS_DB: 'cc_users_db' }
 
 const getUsersDB = () => {
   try { return JSON.parse(localStorage.getItem(STORAGE_KEYS.USERS_DB) || '[]') }
@@ -26,7 +26,7 @@ export const authService = {
       email: email.toLowerCase().trim(),
       phone: phone?.trim() || '',
       password,
-      avatar: `https://ui-avatars.com/api/?name=${encodeURIComponent(name)}&background=8AFFFF&color=071C2F&size=200`,
+      avatar: `https://ui-avatars.com/api/?name=${encodeURIComponent(name)}&background=FF2222&color=071C2F&size=200`,
       enrolledCourses: [],
       certificates: [],
       joinedAt: new Date().toISOString(),
@@ -81,6 +81,21 @@ export const authService = {
     return { message: 'Password reset link sent to your email.' }
   },
 
+  async enrollCourse(courseId) {
+    await new Promise(r => setTimeout(r, 1000))
+    const users = getUsersDB()
+    const current = this.getCurrentUser()
+    const idx = users.findIndex(u => u.id === current.id)
+    if (idx === -1) throw new Error('User not found.')
+    const already = users[idx].enrolledCourses || []
+    if (already.includes(courseId)) return this.getCurrentUser()
+    users[idx].enrolledCourses = [...already, courseId]
+    saveUsersDB(users)
+    const { password: _, ...safeUser } = users[idx]
+    localStorage.setItem(STORAGE_KEYS.USER, JSON.stringify(safeUser))
+    return safeUser
+  },
+
   async updateProfile(updates) {
     await new Promise(r => setTimeout(r, 500))
     const users = getUsersDB()
@@ -94,3 +109,4 @@ export const authService = {
     return safeUser
   },
 }
+
