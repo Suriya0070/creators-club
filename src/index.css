@@ -5,7 +5,7 @@
 @layer base {
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
-  body { background-color: #070B14; color: #F8FAFC; font-family: 'Inter', system-ui, sans-serif; overflow-x: hidden; }
+  body { background-color: #04121C; color: #F8FAFC; font-family: 'Inter', system-ui, sans-serif; overflow-x: hidden; }
   ::selection { background: rgba(138, 255, 255, 0.3); color: #fff; }
   ::-webkit-scrollbar { width: 6px; }
   ::-webkit-scrollbar-track { background: #0F172A; }

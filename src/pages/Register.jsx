@@ -1,4 +1,4 @@
-import { useState } from 'react'
+﻿import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { Eye, EyeOff, Play, ArrowRight, User, Mail, Lock, Phone, CheckCircle } from 'lucide-react'
@@ -38,7 +38,7 @@ export default function Register() {
     setErrors({})
     try {
       await register({ name: form.name, email: form.email, password: form.password, phone: form.phone })
-      toast.success('Account created! Welcome to Creators Club 🎬')
+      toast.success('Account created! Welcome to Creators Club ðŸŽ¬')
       navigate('/dashboard')
     } catch (err) {
       toast.error(err.message)
@@ -49,10 +49,10 @@ export default function Register() {
   const iconCls = 'absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-white/30'
 
   return (
-    <div className="min-h-screen flex items-center justify-center relative bg-[#070B14]">
-      <div className="absolute inset-0 grid-bg opacity-40" />
-      <div className="absolute top-1/4 right-1/4 w-80 h-80 bg-cyan-400/8 rounded-full filter blur-[120px]" />
-      <div className="absolute bottom-1/4 left-1/4 w-64 h-64 bg-blue-500/8 rounded-full filter blur-[100px]" />
+    <div className="min-h-screen flex items-center justify-center relative bg-[#04121C]">
+      <div className="absolute inset-0 grid-bg opacity-60" />
+      <div className="absolute top-1/4 right-1/4 w-80 h-80 rounded-full" style={{ background: 'rgba(138,255,255,0.18)', filter: 'blur(110px)' }} />
+      <div className="absolute bottom-1/4 left-1/4 w-64 h-64 rounded-full" style={{ background: 'rgba(0,180,230,0.14)', filter: 'blur(90px)' }} />
       <div className="noise-overlay" />
 
       <div className="relative w-full max-w-lg px-4 py-20">

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+﻿import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Clock, BookOpen, CheckCircle, Award, ArrowRight, ChevronDown, Play, Users, Zap } from 'lucide-react'
@@ -19,7 +19,7 @@ function CourseCard({ course, featured = false }) {
     >
       {featured && (
         <div className="bg-gradient-to-r from-cyan-400 to-blue-500 text-center py-2 text-xs font-bold text-navy-900 uppercase tracking-widest">
-          ⭐ Most Popular
+          â­ Most Popular
         </div>
       )}
 
@@ -89,10 +89,10 @@ function CourseCard({ course, featured = false }) {
           <div className="flex items-center justify-between mt-auto">
             <div>
               <div className="flex items-baseline gap-2">
-                <span className="font-heading font-extrabold text-3xl text-white">₹{course.price.toLocaleString('en-IN')}</span>
-                <span className="text-white/30 text-base line-through">₹{course.originalPrice.toLocaleString('en-IN')}</span>
+                <span className="font-heading font-extrabold text-3xl text-white">â‚¹{course.price.toLocaleString('en-IN')}</span>
+                <span className="text-white/30 text-base line-through">â‚¹{course.originalPrice.toLocaleString('en-IN')}</span>
               </div>
-              <span className="text-green-400 text-xs font-semibold">{Math.round((1 - course.price / course.originalPrice) * 100)}% OFF — Limited time</span>
+              <span className="text-green-400 text-xs font-semibold">{Math.round((1 - course.price / course.originalPrice) * 100)}% OFF â€” Limited time</span>
             </div>
             <Link to="/register" className="btn-primary text-sm px-6 py-3">
               Enroll Now <ArrowRight className="w-4 h-4" />
@@ -156,7 +156,7 @@ function CourseCard({ course, featured = false }) {
 
 export default function CoursesPage() {
   return (
-    <div className="min-h-screen bg-[#070B14] pt-24 pb-20">
+    <div className="min-h-screen bg-[#04121C] pt-24 pb-20">
       <div className="absolute inset-0 grid-bg opacity-30" />
       <div className="noise-overlay" />
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-400/5 rounded-full filter blur-[120px]" />
@@ -185,7 +185,7 @@ export default function CoursesPage() {
 
         {/* Guarantee */}
         <AnimatedSection delay={0.3} className="mt-12 text-center glass rounded-2xl p-8">
-          <div className="text-4xl mb-3">🛡️</div>
+          <div className="text-4xl mb-3">ðŸ›¡ï¸</div>
           <h3 className="font-heading font-bold text-xl text-white mb-2">7-Day Money-Back Guarantee</h3>
           <p className="text-white/50 text-sm max-w-md mx-auto">
             Not satisfied within the first 7 days? We'll refund you 100%, no questions asked. Zero risk, maximum value.

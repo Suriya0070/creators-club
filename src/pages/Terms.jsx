@@ -1,9 +1,9 @@
-import { Link } from 'react-router-dom'
+﻿import { Link } from 'react-router-dom'
 import { Play, ArrowLeft } from 'lucide-react'
 
 export default function Terms() {
   return (
-    <div className="min-h-screen bg-[#070B14] text-white">
+    <div className="min-h-screen bg-[#04121C] text-white">
       <div className="absolute inset-0 grid-bg opacity-20" />
       <nav className="fixed top-4 left-6 z-50">
         <Link to="/" className="inline-flex items-center gap-2 glass text-white/70 px-4 py-2 rounded-full text-sm font-medium hover:text-white hover:border-cyan-400/30 transition-all">

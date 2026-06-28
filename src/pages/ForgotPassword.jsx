@@ -1,4 +1,4 @@
-import { useState } from 'react'
+﻿import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { Play, Mail, ArrowLeft, CheckCircle } from 'lucide-react'
@@ -27,7 +27,7 @@ export default function ForgotPassword() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center relative bg-[#070B14]">
+    <div className="min-h-screen flex items-center justify-center relative bg-[#04121C]">
       <div className="absolute inset-0 grid-bg opacity-40" />
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-80 h-80 bg-cyan-400/8 rounded-full filter blur-[120px]" />
       <div className="noise-overlay" />

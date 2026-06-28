@@ -1,4 +1,4 @@
-import { useState } from 'react'
+﻿import { useState } from 'react'
 import { Link, useNavigate, useLocation } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { Eye, EyeOff, Play, ArrowRight, Lock, Mail } from 'lucide-react'
@@ -38,11 +38,11 @@ export default function Login() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center relative bg-[#070B14]">
+    <div className="min-h-screen flex items-center justify-center relative bg-[#04121C]">
       {/* Background */}
-      <div className="absolute inset-0 grid-bg opacity-40" />
-      <div className="absolute top-1/4 left-1/4 w-80 h-80 bg-cyan-400/8 rounded-full filter blur-[120px]" />
-      <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-blue-500/8 rounded-full filter blur-[100px]" />
+      <div className="absolute inset-0 grid-bg opacity-60" />
+      <div className="absolute top-1/4 left-1/4 w-80 h-80 rounded-full" style={{ background: 'rgba(138,255,255,0.18)', filter: 'blur(110px)' }} />
+      <div className="absolute bottom-1/4 right-1/4 w-64 h-64 rounded-full" style={{ background: 'rgba(0,180,230,0.14)', filter: 'blur(90px)' }} />
       <div className="noise-overlay" />
 
       <div className="relative w-full max-w-md px-4 py-20">
@@ -101,7 +101,7 @@ export default function Login() {
                   value={form.password}
                   onChange={e => setForm(p => ({ ...p, password: e.target.value }))}
                   className={`input-field pl-10 pr-10 ${errors.password ? 'border-red-500/60' : ''}`}
-                  placeholder="••••••••"
+                  placeholder="â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢"
                 />
                 <button
                   type="button"

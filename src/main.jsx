@@ -16,9 +16,9 @@ const Terms = lazy(() => import('./pages/Terms.jsx'))
 
 function LoadingFallback() {
   return (
-    <div className="min-h-screen bg-[#070B14] flex items-center justify-center">
+    <div className="min-h-screen flex items-center justify-center" style={{ background: '#04121C' }}>
       <div className="flex flex-col items-center gap-3">
-        <div className="w-10 h-10 border-2 border-cyan-400/20 border-t-cyan-400 rounded-full animate-spin" />
+        <div className="w-10 h-10 border-2 rounded-full animate-spin" style={{ borderColor: 'rgba(138,255,255,0.2)', borderTopColor: '#8AFFFF' }} />
         <p className="text-white/30 text-sm">Loading...</p>
       </div>
     </div>
@@ -27,12 +27,15 @@ function LoadingFallback() {
 
 function PrivateRoute({ children }) {
   const { isAuthenticated } = useAuth()
-  return isAuthenticated ? children : <Navigate to="/login" replace />
+  // Also check localStorage directly — guards against React state race on first render
+  const hasSession = isAuthenticated || !!localStorage.getItem('cc_token')
+  return hasSession ? children : <Navigate to="/login" replace />
 }
 
 function PublicOnlyRoute({ children }) {
   const { isAuthenticated } = useAuth()
-  return !isAuthenticated ? children : <Navigate to="/dashboard" replace />
+  const hasSession = isAuthenticated || !!localStorage.getItem('cc_token')
+  return !hasSession ? children : <Navigate to="/dashboard" replace />
 }
 
 const router = createBrowserRouter([

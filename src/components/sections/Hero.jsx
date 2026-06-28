@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { Play, ArrowRight, Star, Users, Award } from 'lucide-react'
@@ -22,7 +22,7 @@ function AnimatedWords() {
   )
 }
 
-const PARTICLES = Array.from({ length: 20 }, (_, i) => ({
+const PARTICLES = Array.from({ length: 24 }, (_, i) => ({
   id: i,
   x: Math.random() * 100,
   y: Math.random() * 100,
@@ -39,27 +39,40 @@ export default function Hero() {
 
   return (
     <section ref={containerRef} className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#071C2F] via-[#0F172A] to-[#070B14]" />
-      <div className="absolute inset-0 grid-bg opacity-60" />
+      {/* Deep teal-cyan background */}
+      <div className="absolute inset-0" style={{ background: 'linear-gradient(160deg, #061C28 0%, #041830 40%, #051220 70%, #04121C 100%)' }} />
+      <div className="absolute inset-0 grid-bg" style={{ opacity: 0.7 }} />
 
-      {/* Animated blobs */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-400/10 rounded-full filter blur-[120px] animate-blob" />
-      <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-blue-500/10 rounded-full filter blur-[100px] animate-blob animation-delay-2000" />
-      <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-cyan-300/5 rounded-full filter blur-[80px] animate-blob animation-delay-4000" />
+      {/* Large visible cyan blobs — MUCH more opaque now */}
+      <div
+        className="absolute -top-32 -left-32 w-[600px] h-[600px] rounded-full animate-blob"
+        style={{ background: 'rgba(138, 255, 255, 0.18)', filter: 'blur(100px)' }}
+      />
+      <div
+        className="absolute top-1/3 right-0 w-[500px] h-[500px] rounded-full animate-blob animation-delay-2000"
+        style={{ background: 'rgba(0, 180, 230, 0.15)', filter: 'blur(110px)' }}
+      />
+      <div
+        className="absolute bottom-0 left-1/3 w-[400px] h-[400px] rounded-full animate-blob animation-delay-4000"
+        style={{ background: 'rgba(138, 255, 255, 0.12)', filter: 'blur(90px)' }}
+      />
+      {/* Central glow */}
+      <div
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] rounded-full pointer-events-none"
+        style={{ background: 'radial-gradient(ellipse, rgba(138,255,255,0.08) 0%, transparent 70%)' }}
+      />
 
       {/* Floating particles */}
       {PARTICLES.map((p) => (
         <motion.div
           key={p.id}
-          className="absolute rounded-full bg-cyan-400"
-          style={{ left: `${p.x}%`, top: `${p.y}%`, width: p.size, height: p.size, opacity: 0.3 }}
-          animate={{ y: [-10, 10, -10], opacity: [0.2, 0.5, 0.2] }}
+          className="absolute rounded-full"
+          style={{ left: `${p.x}%`, top: `${p.y}%`, width: p.size, height: p.size, background: '#8AFFFF', opacity: 0.4 }}
+          animate={{ y: [-10, 10, -10], opacity: [0.25, 0.6, 0.25] }}
           transition={{ duration: p.duration, delay: p.delay, repeat: Infinity, ease: 'easeInOut' }}
         />
       ))}
 
-      {/* Noise overlay */}
       <div className="noise-overlay" />
 
       <motion.div
@@ -110,7 +123,7 @@ export default function Hero() {
           transition={{ duration: 0.7, delay: 0.65 }}
           className="text-white/40 text-base mb-10"
         >
-          Courses from ₹2,999 • Certificate of Completion • Lifetime Access
+          Courses from ₹2,999 · Certificate of Completion · Lifetime Access
         </motion.p>
 
         {/* CTAs */}
@@ -120,7 +133,7 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.75 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-14"
         >
-          <Link to="/courses" className="btn-primary text-base px-8 py-4 shadow-[0_0_40px_rgba(0,217,255,0.4)]">
+          <Link to="/courses" className="btn-primary text-base px-8 py-4" style={{ boxShadow: '0 0 50px rgba(138,255,255,0.45)' }}>
             Explore Courses <ArrowRight className="w-5 h-5" />
           </Link>
           <motion.a
@@ -145,7 +158,7 @@ export default function Hero() {
           <div className="flex items-center gap-3">
             <div className="flex -space-x-2">
               {['https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=60&q=80','https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=60&q=80','https://images.unsplash.com/photo-1494790108755-2616b612b47c?w=60&q=80','https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=60&q=80'].map((src, i) => (
-                <img key={i} src={src} alt="" className="w-8 h-8 rounded-full border-2 border-dark-900 object-cover" />
+                <img key={i} src={src} alt="" className="w-8 h-8 rounded-full border-2 object-cover" style={{ borderColor: '#04121C' }} />
               ))}
             </div>
             <div className="text-left">
