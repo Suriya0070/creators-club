@@ -4,45 +4,58 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: '#00BFA6',
-        'primary-dark': '#009980',
-        'primary-light': '#33CCBA',
-        accent: '#E879F9',
-        'accent-dark': '#C855D4',
-        background: '#080810',
-        surface: '#0F0F1C',
-        ink: '#F0F0FC',
-        muted: '#7070A0',
-        divider: '#1A1A2E',
-        deep: '#050508',
+        cyan: {
+          400: '#00D9FF',
+          500: '#00AEEF',
+          600: '#0090CC',
+        },
+        navy: {
+          900: '#071C2F',
+          800: '#0D2845',
+          700: '#123460',
+        },
+        dark: {
+          900: '#070B14',
+          800: '#0F172A',
+          700: '#111827',
+          600: '#1E293B',
+          500: '#334155',
+        },
+        glass: 'rgba(255,255,255,0.05)',
       },
       fontFamily: {
-        display: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
-        serif: ['"Cormorant Garamond"', 'serif'],
+        heading: ['"Poppins"', 'system-ui', 'sans-serif'],
         body: ['"Inter"', 'system-ui', 'sans-serif'],
+        display: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
         mono: ['"JetBrains Mono"', 'monospace'],
       },
-      borderRadius: {
-        '2.5xl': '1.25rem',
-        '4xl': '2rem',
-        '5xl': '2.5rem',
-        '6xl': '3rem',
-        '7xl': '4rem',
+      backgroundImage: {
+        'cyan-gradient': 'linear-gradient(135deg, #00D9FF 0%, #00AEEF 50%, #0090CC 100%)',
+        'dark-gradient': 'linear-gradient(180deg, #071C2F 0%, #0F172A 50%, #111827 100%)',
+        'glow-cyan': 'radial-gradient(ellipse at center, rgba(0,217,255,0.15) 0%, transparent 70%)',
+      },
+      boxShadow: {
+        'cyan-glow': '0 0 30px rgba(0,217,255,0.3)',
+        'cyan-glow-lg': '0 0 60px rgba(0,217,255,0.2)',
+        glass: '0 8px 32px rgba(0,0,0,0.4)',
       },
       animation: {
+        'float': 'float 6s ease-in-out infinite',
         'pulse-slow': 'pulse 3s ease-in-out infinite',
-        blink: 'blink 1s step-end infinite',
-        float: 'float 6s ease-in-out infinite',
-        marquee: 'marquee 30s linear infinite',
+        'blob': 'blob 7s infinite',
+        'spin-slow': 'spin 8s linear infinite',
+        'marquee': 'marquee 30s linear infinite',
       },
       keyframes: {
-        blink: {
-          '0%, 100%': { opacity: '1' },
-          '50%': { opacity: '0' },
-        },
         float: {
-          '0%, 100%': { transform: 'translateY(0)' },
-          '50%': { transform: 'translateY(-8px)' },
+          '0%, 100%': { transform: 'translateY(0px)' },
+          '50%': { transform: 'translateY(-20px)' },
+        },
+        blob: {
+          '0%': { transform: 'translate(0px, 0px) scale(1)' },
+          '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+          '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+          '100%': { transform: 'translate(0px, 0px) scale(1)' },
         },
         marquee: {
           '0%': { transform: 'translateX(0%)' },
