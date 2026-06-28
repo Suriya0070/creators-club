@@ -26,7 +26,7 @@ export const authService = {
       email: email.toLowerCase().trim(),
       phone: phone?.trim() || '',
       password,
-      avatar: `https://ui-avatars.com/api/?name=${encodeURIComponent(name)}&background=00D9FF&color=071C2F&size=200`,
+      avatar: `https://ui-avatars.com/api/?name=${encodeURIComponent(name)}&background=8AFFFF&color=071C2F&size=200`,
       enrolledCourses: [],
       certificates: [],
       joinedAt: new Date().toISOString(),

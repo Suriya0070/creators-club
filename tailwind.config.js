@@ -5,9 +5,9 @@ export default {
     extend: {
       colors: {
         cyan: {
-          400: '#00D9FF',
-          500: '#00AEEF',
-          600: '#0090CC',
+          400: '#8AFFFF',
+          500: '#00D4FF',
+          600: '#00AAEE',
         },
         navy: {
           900: '#071C2F',
@@ -30,13 +30,13 @@ export default {
         mono: ['"JetBrains Mono"', 'monospace'],
       },
       backgroundImage: {
-        'cyan-gradient': 'linear-gradient(135deg, #00D9FF 0%, #00AEEF 50%, #0090CC 100%)',
+        'cyan-gradient': 'linear-gradient(135deg, #8AFFFF 0%, #00D4FF 50%, #00AAEE 100%)',
         'dark-gradient': 'linear-gradient(180deg, #071C2F 0%, #0F172A 50%, #111827 100%)',
-        'glow-cyan': 'radial-gradient(ellipse at center, rgba(0,217,255,0.15) 0%, transparent 70%)',
+        'glow-cyan': 'radial-gradient(ellipse at center, rgba(138,255,255,0.15) 0%, transparent 70%)',
       },
       boxShadow: {
-        'cyan-glow': '0 0 30px rgba(0,217,255,0.3)',
-        'cyan-glow-lg': '0 0 60px rgba(0,217,255,0.2)',
+        'cyan-glow': '0 0 30px rgba(138,255,255,0.3)',
+        'cyan-glow-lg': '0 0 60px rgba(138,255,255,0.2)',
         glass: '0 8px 32px rgba(0,0,0,0.4)',
       },
       animation: {

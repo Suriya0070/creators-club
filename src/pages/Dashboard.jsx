@@ -15,7 +15,7 @@ const NAV_ITEMS = [
   { icon: User, label: 'Profile', id: 'profile' },
 ]
 
-function StatCard({ value, label, color = '#00D9FF' }) {
+function StatCard({ value, label, color = '#8AFFFF' }) {
   return (
     <div className="glass rounded-2xl p-5 text-center">
       <div className="font-heading font-extrabold text-3xl mb-1" style={{ color }}>{value}</div>
