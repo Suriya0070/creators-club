@@ -17,10 +17,9 @@ const Terms = lazy(() => import('./pages/Terms.jsx'))
 
 function LoadingFallback() {
   return (
-    <div className="min-h-screen flex items-center justify-center" style={{ background: '#0C0003' }}>
+    <div className="min-h-screen flex items-center justify-center" style={{ background: '#FAF4E8' }}>
       <div className="flex flex-col items-center gap-3">
-        <div className="w-10 h-10 border-2 rounded-full animate-spin" style={{ borderColor: 'rgba(255,34,34,0.2)', borderTopColor: '#FF2222' }} />
-        <p className="text-white/30 text-sm">Loading...</p>
+        <div className="w-10 h-10 border-2 rounded-full animate-spin" style={{ borderColor: 'rgba(28,26,46,0.12)', borderTopColor: '#F5A623' }} />
       </div>
     </div>
   )

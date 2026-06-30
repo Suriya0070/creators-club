@@ -1,54 +1,50 @@
-﻿import { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X, Play, LogOut, User, LayoutDashboard } from 'lucide-react'
-import { useAuth } from '../../context/AuthContext'
-import { useToast } from '../../hooks/useToast'
+import { Menu, X, ArrowUpRight } from 'lucide-react'
 
 const NAV_LINKS = [
-  { label: 'Home', href: '/' },
-  { label: 'Courses', href: '/courses' },
-  { label: 'Portfolio', href: '/#portfolio' },
-  { label: 'Testimonials', href: '/#testimonials' },
-  { label: 'Contact', href: '/#contact' },
+  { label: 'Work',     href: '/#showreel' },
+  { label: 'Services', href: '/#services' },
+  { label: 'Process',  href: '/#process' },
+  { label: 'About',    href: '/#about' },
+  { label: 'Contact',  href: '/#contact' },
 ]
 
+function LogoMark() {
+  return (
+    <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="18" cy="18" r="18" fill="#F5A623" />
+      <rect x="9"  y="13" width="18" height="2.5" rx="1.25" fill="#1C1A2E" />
+      <rect x="9"  y="17" width="13" height="2.5" rx="1.25" fill="#1C1A2E" />
+      <rect x="9"  y="21" width="16" height="2.5" rx="1.25" fill="#1C1A2E" />
+    </svg>
+  )
+}
+
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false)
+  const [scrolled, setScrolled]     = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
-  const [userMenuOpen, setUserMenuOpen] = useState(false)
-  const { user, logout, isAuthenticated } = useAuth()
-  const toast = useToast()
-  const location = useLocation()
-  const navigate = useNavigate()
+  const location  = useLocation()
+  const navigate  = useNavigate()
 
   useEffect(() => {
-    const handler = () => setScrolled(window.scrollY > 20)
+    const handler = () => setScrolled(window.scrollY > 30)
     window.addEventListener('scroll', handler)
     return () => window.removeEventListener('scroll', handler)
   }, [])
 
   useEffect(() => { setMobileOpen(false) }, [location.pathname])
 
-  const handleLogout = () => {
-    logout()
-    toast.success('Logged out successfully')
-    setUserMenuOpen(false)
-    navigate('/')
-  }
-
-  const handleHashLink = (href) => {
-    if (href.startsWith('/#')) {
-      if (location.pathname !== '/') {
-        navigate('/')
-        setTimeout(() => {
-          const el = document.getElementById(href.slice(2))
-          el?.scrollIntoView({ behavior: 'smooth' })
-        }, 300)
-      } else {
-        const el = document.getElementById(href.slice(2))
-        el?.scrollIntoView({ behavior: 'smooth' })
-      }
+  const handleNav = (href) => {
+    setMobileOpen(false)
+    if (!href.startsWith('/#')) return
+    const id = href.slice(2)
+    if (location.pathname !== '/') {
+      navigate('/')
+      setTimeout(() => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' }), 300)
+    } else {
+      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
     }
   }
 
@@ -58,155 +54,129 @@ export default function Navbar() {
         initial={{ y: -80, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6, ease: 'easeOut' }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          scrolled ? 'glass-strong py-3 shadow-[0_4px_30px_rgba(0,0,0,0.4)]' : 'py-5'
-        }`}
+        style={{
+          position: 'fixed', top: 0, left: 0, right: 0, zIndex: 50,
+          background: scrolled ? 'rgba(250,244,232,0.92)' : 'transparent',
+          backdropFilter: scrolled ? 'blur(16px)' : 'none',
+          borderBottom: scrolled ? '1px solid rgba(28,26,46,0.08)' : '1px solid transparent',
+          transition: 'all 0.4s ease',
+          padding: scrolled ? '12px 0' : '20px 0',
+        }}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between">
+        <div style={{ maxWidth: 1400, margin: '0 auto', padding: '0 40px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2.5 group">
-            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-cyan-400 to-cyan-500 flex items-center justify-center shadow-[0_0_15px_rgba(0,217,255,0.4)] group-hover:shadow-[0_0_25px_rgba(0,217,255,0.6)] transition-all duration-300">
-              <Play className="w-4 h-4 text-navy-900 fill-current ml-0.5" />
-            </div>
-            <span className="font-heading font-extrabold text-lg text-white">
-              Creators<span className="text-gradient-pure">Club</span>
+          <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: 10, textDecoration: 'none' }}>
+            <LogoMark />
+            <span style={{ fontFamily: "'Cinzel Decorative', serif", fontWeight: 700, fontSize: '1rem', color: '#1C1A2E', letterSpacing: '0.04em' }}>
+              PRMINDS
             </span>
           </Link>
 
-          {/* Desktop Nav */}
-          <div className="hidden md:flex items-center gap-1">
-            {NAV_LINKS.map((link) => (
-              link.href.startsWith('/#') ? (
-                <button
-                  key={link.href}
-                  onClick={() => handleHashLink(link.href)}
-                  className="px-4 py-2 rounded-lg text-sm font-medium text-white/70 hover:text-white hover:bg-white/5 transition-all duration-200"
-                >
-                  {link.label}
-                </button>
-              ) : (
-                <Link
-                  key={link.href}
-                  to={link.href}
-                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
-                    location.pathname === link.href
-                      ? 'text-cyan-400 bg-cyan-400/10'
-                      : 'text-white/70 hover:text-white hover:bg-white/5'
-                  }`}
-                >
-                  {link.label}
-                </Link>
-              )
+          {/* Desktop nav */}
+          <div className="hidden md:flex" style={{ alignItems: 'center', gap: 4 }}>
+            {NAV_LINKS.map(({ label, href }) => (
+              <button
+                key={href}
+                onClick={() => handleNav(href)}
+                style={{
+                  padding: '8px 16px',
+                  background: 'none',
+                  border: 'none',
+                  cursor: 'pointer',
+                  fontFamily: "'DM Sans', sans-serif",
+                  fontWeight: 500,
+                  fontSize: '0.9rem',
+                  color: 'rgba(28,26,46,0.65)',
+                  borderRadius: 8,
+                  transition: 'color 0.2s',
+                }}
+                onMouseEnter={e => e.currentTarget.style.color = '#1C1A2E'}
+                onMouseLeave={e => e.currentTarget.style.color = 'rgba(28,26,46,0.65)'}
+              >
+                {label}
+              </button>
             ))}
           </div>
 
-          {/* Desktop CTA */}
-          <div className="hidden md:flex items-center gap-3">
-            {isAuthenticated ? (
-              <div className="relative">
-                <button
-                  onClick={() => setUserMenuOpen(!userMenuOpen)}
-                  className="flex items-center gap-2.5 glass rounded-full px-3 py-1.5 hover:border-cyan-400/30 transition-all duration-200"
-                >
-                  <img src={user?.avatar} alt={user?.name} className="w-7 h-7 rounded-full object-cover" />
-                  <span className="text-sm font-medium text-white/90">{user?.name?.split(' ')[0]}</span>
-                  <svg className="w-3.5 h-3.5 text-white/50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
-                </button>
-                <AnimatePresence>
-                  {userMenuOpen && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 8, scale: 0.95 }}
-                      animate={{ opacity: 1, y: 0, scale: 1 }}
-                      exit={{ opacity: 0, y: 8, scale: 0.95 }}
-                      transition={{ duration: 0.15 }}
-                      className="absolute right-0 mt-2 w-48 glass-strong rounded-xl shadow-xl overflow-hidden"
-                    >
-                      <Link to="/dashboard" onClick={() => setUserMenuOpen(false)} className="flex items-center gap-3 px-4 py-3 text-sm text-white/80 hover:text-white hover:bg-white/5 transition-colors">
-                        <LayoutDashboard className="w-4 h-4 text-cyan-400" /> Dashboard
-                      </Link>
-                      <Link to="/profile" onClick={() => setUserMenuOpen(false)} className="flex items-center gap-3 px-4 py-3 text-sm text-white/80 hover:text-white hover:bg-white/5 transition-colors">
-                        <User className="w-4 h-4 text-cyan-400" /> Profile
-                      </Link>
-                      <div className="border-t border-white/5" />
-                      <button onClick={handleLogout} className="w-full flex items-center gap-3 px-4 py-3 text-sm text-red-400 hover:text-red-300 hover:bg-red-500/5 transition-colors">
-                        <LogOut className="w-4 h-4" /> Log Out
-                      </button>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
-            ) : (
-              <>
-                <Link to="/login" className="btn-outline text-sm py-2 px-5">
-                  Login
-                </Link>
-                <Link to="/register" className="btn-primary text-sm py-2 px-5">
-                  Get Started
-                </Link>
-              </>
-            )}
-          </div>
-
-          {/* Mobile menu btn */}
+          {/* CTA */}
           <button
-            onClick={() => setMobileOpen(!mobileOpen)}
-            className="md:hidden glass p-2 rounded-xl text-white/80 hover:text-white transition-colors"
+            className="hidden md:flex"
+            onClick={() => handleNav('/#contact')}
+            style={{
+              background: '#1C1A2E',
+              color: '#FAF4E8',
+              fontFamily: "'Space Grotesk', sans-serif",
+              fontWeight: 700,
+              fontSize: '0.8rem',
+              letterSpacing: '0.04em',
+              padding: '10px 22px',
+              borderRadius: 9999,
+              border: 'none',
+              cursor: 'pointer',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: 6,
+              transition: 'all 0.22s ease',
+            }}
+            onMouseEnter={e => { e.currentTarget.style.background = '#F5A623'; e.currentTarget.style.color = '#1C1A2E' }}
+            onMouseLeave={e => { e.currentTarget.style.background = '#1C1A2E'; e.currentTarget.style.color = '#FAF4E8' }}
           >
-            {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            BOOK A CALL <ArrowUpRight style={{ width: 14, height: 14 }} />
+          </button>
+
+          {/* Mobile hamburger */}
+          <button
+            className="md:hidden"
+            onClick={() => setMobileOpen(!mobileOpen)}
+            style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#1C1A2E', padding: 6 }}
+          >
+            {mobileOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
       </motion.nav>
 
-      {/* Mobile Menu */}
+      {/* Mobile menu */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
-            className="fixed top-[60px] left-0 right-0 z-40 glass-strong border-t border-white/5 overflow-hidden"
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.22 }}
+            style={{
+              position: 'fixed', top: 64, left: 0, right: 0, zIndex: 40,
+              background: '#FAF4E8',
+              borderBottom: '1px solid rgba(28,26,46,0.1)',
+              padding: '16px 24px 24px',
+            }}
           >
-            <div className="p-4 space-y-1">
-              {NAV_LINKS.map((link) => (
-                link.href.startsWith('/#') ? (
-                  <button
-                    key={link.href}
-                    onClick={() => { handleHashLink(link.href); setMobileOpen(false) }}
-                    className="w-full text-left px-4 py-3 rounded-xl text-sm font-medium text-white/70 hover:text-white hover:bg-white/5 transition-all"
-                  >
-                    {link.label}
-                  </button>
-                ) : (
-                  <Link
-                    key={link.href}
-                    to={link.href}
-                    className="block px-4 py-3 rounded-xl text-sm font-medium text-white/70 hover:text-white hover:bg-white/5 transition-all"
-                  >
-                    {link.label}
-                  </Link>
-                )
-              ))}
-              <div className="pt-3 space-y-2 border-t border-white/5">
-                {isAuthenticated ? (
-                  <>
-                    <Link to="/dashboard" className="btn-outline w-full justify-center text-sm py-2.5">Dashboard</Link>
-                    <button onClick={handleLogout} className="w-full text-sm text-red-400 hover:text-red-300 py-2">Log Out</button>
-                  </>
-                ) : (
-                  <>
-                    <Link to="/login" className="btn-outline w-full justify-center text-sm py-2.5">Login</Link>
-                    <Link to="/register" className="btn-primary w-full justify-center text-sm py-2.5">Get Started</Link>
-                  </>
-                )}
-              </div>
-            </div>
+            {NAV_LINKS.map(({ label, href }) => (
+              <button
+                key={href}
+                onClick={() => handleNav(href)}
+                style={{
+                  display: 'block', width: '100%', textAlign: 'left',
+                  padding: '13px 0',
+                  background: 'none', border: 'none', cursor: 'pointer',
+                  fontFamily: "'DM Sans', sans-serif", fontWeight: 500,
+                  fontSize: '1rem', color: '#1C1A2E',
+                  borderBottom: '1px solid rgba(28,26,46,0.07)',
+                }}
+              >
+                {label}
+              </button>
+            ))}
+            <button
+              onClick={() => handleNav('/#contact')}
+              className="btn-primary"
+              style={{ marginTop: 16, width: '100%', justifyContent: 'center' }}
+            >
+              BOOK A CALL <ArrowUpRight style={{ width: 14, height: 14 }} />
+            </button>
           </motion.div>
         )}
       </AnimatePresence>
     </>
   )
 }
-

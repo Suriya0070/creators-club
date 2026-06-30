@@ -39,11 +39,11 @@ export default function App() {
         toastOptions={{
           duration: 4000,
           style: {
-            background: '#0F172A',
-            color: '#F8FAFC',
-            border: '1px solid rgba(255,34,34,0.2)',
+            background: '#FAF4E8',
+            color: '#1C1A2E',
+            border: '1px solid rgba(28,26,46,0.12)',
             borderRadius: '12px',
-            fontFamily: '"Inter", sans-serif',
+            fontFamily: '"DM Sans", sans-serif',
             fontSize: '14px',
           },
         }}
