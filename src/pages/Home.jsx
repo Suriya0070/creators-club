@@ -1,7 +1,5 @@
 import Hero from '../components/sections/Hero'
-import Showreel from '../components/sections/Showreel'
-import ClientTypes from '../components/sections/ClientTypes'
-import FeaturedWork from '../components/sections/FeaturedWork'
+import WorkSection from '../components/sections/WorkSection'
 import ServicesAgency from '../components/sections/ServicesAgency'
 import BeforeAfter from '../components/sections/BeforeAfter'
 import WhyUs from '../components/sections/WhyUs'
@@ -14,9 +12,7 @@ export default function Home() {
   return (
     <main>
       <Hero />
-      <Showreel />
-      <ClientTypes />
-      <FeaturedWork />
+      <WorkSection />
       <ServicesAgency />
       <BeforeAfter />
       <WhyUs />
