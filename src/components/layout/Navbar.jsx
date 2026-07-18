@@ -218,11 +218,10 @@ function PackagesPanel({ onNav }) {
               />
               {/* gradient bottom overlay */}
               <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(10,10,15,0.92) 0%, rgba(10,10,15,0.2) 55%, transparent 100%)' }} />
-              {/* price badge bottom-left */}
+              {/* tier label bottom-left */}
               <div style={{ position: 'absolute', bottom: 14, left: 14 }}>
-                <span style={{ display: 'inline-flex', alignItems: 'baseline', gap: 2 }}>
-                  <span style={{ fontSize: '1.45rem', fontWeight: 900, color: '#FFD166', fontFamily: "'Space Grotesk',sans-serif", lineHeight: 1 }}>{pkg.price}</span>
-                  <span style={{ fontSize: '0.7rem', color: cream(0.5), fontFamily: "'DM Sans',sans-serif" }}>{pkg.per}</span>
+                <span style={{ display: 'inline-flex', alignItems: 'center', background: 'rgba(245,166,35,0.18)', border: '1px solid rgba(245,166,35,0.4)', borderRadius: 20, padding: '4px 12px' }}>
+                  <span style={{ fontSize: '0.72rem', fontWeight: 700, color: '#FFD166', fontFamily: "'Space Grotesk',sans-serif", letterSpacing: '0.05em' }}>{pkg.name}</span>
                 </span>
               </div>
             </div>
@@ -256,7 +255,7 @@ function PackagesPanel({ onNav }) {
                 <div style={{ fontSize: '0.72rem', fontWeight: 700, color: cream(0.7), fontFamily: "'Space Grotesk',sans-serif" }}>{pkg.name}</div>
                 <div style={{ fontSize: '0.58rem', color: cream(0.3), fontFamily: "'DM Sans',sans-serif", marginTop: 2 }}>{pkg.duration} · {pkg.delivery}</div>
               </div>
-              <div style={{ fontSize: '1rem', fontWeight: 800, color: '#FFD166', fontFamily: "'Space Grotesk',sans-serif", flexShrink: 0 }}>{pkg.price}</div>
+              <div style={{ fontSize: '0.65rem', fontWeight: 700, color: '#B2FFFF', fontFamily: "'Space Grotesk',sans-serif", flexShrink: 0, background: 'rgba(178,255,255,0.08)', border: '1px solid rgba(178,255,255,0.2)', borderRadius: 20, padding: '3px 10px', letterSpacing: '0.04em' }}>Get Quote</div>
             </div>
           ))}
         </div>
