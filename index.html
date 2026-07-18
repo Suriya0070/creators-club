@@ -10,6 +10,18 @@
     <meta property="og:title" content="PRMinds — Video Editor & Motion Designer" />
     <meta property="og:description" content="Video Editor & Motion Designer for Reels, YouTube Documentaries and 2.5D Visual Storytelling." />
     <meta property="og:type" content="website" />
+    <!-- Preload reel videos via hidden elements so navbar Packages panel plays instantly -->
+    <script>
+      window.addEventListener('load', () => {
+        ['/videos/Reel1.mp4','/videos/Reel2.mp4','/videos/Reel3.mp4'].forEach(src => {
+          const v = document.createElement('video');
+          v.src = src; v.muted = true; v.preload = 'auto';
+          v.style.cssText = 'position:fixed;width:1px;height:1px;opacity:0;pointer-events:none;top:-9999px';
+          document.body.appendChild(v);
+          v.load();
+        });
+      });
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
