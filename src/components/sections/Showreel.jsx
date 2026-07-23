@@ -26,7 +26,7 @@ export default function Showreel() {
               <>
                 <img
                   src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=1400&q=80"
-                  alt="PRMinds Showreel"
+                  alt="Visuals Infinite Showreel"
                   className="w-full h-full object-cover opacity-50 transition-opacity duration-500 group-hover:opacity-60"
                 />
                 <div className="absolute inset-0 flex items-center justify-center">
@@ -38,7 +38,7 @@ export default function Showreel() {
                   </motion.div>
                 </div>
                 <div className="absolute bottom-6 left-6">
-                  <p className="text-white font-bold text-base" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>PRMinds — Showreel 2025</p>
+                  <p className="text-white font-bold text-base" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>Visuals Infinite — Showreel 2025</p>
                   <p className="text-white/45 text-xs mt-0.5">Reels · YouTube · Documentary · Motion Graphics</p>
                 </div>
                 <div className="absolute bottom-6 right-6">
@@ -50,7 +50,7 @@ export default function Showreel() {
                 <iframe
                   className="w-full h-full"
                   src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&rel=0"
-                  title="PRMinds Showreel"
+                  title="Visuals Infinite Showreel"
                   frameBorder="0"
                   allow="autoplay; encrypted-media"
                   allowFullScreen

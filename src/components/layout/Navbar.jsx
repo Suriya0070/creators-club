@@ -327,7 +327,7 @@ function StoryPanel({ onNav }) {
       {/* Left — quote */}
       <div style={{ paddingRight: 56, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
         <div>
-          <p style={cat}>Why PRMinds</p>
+          <p style={cat}>Why Visuals Infinite</p>
           <blockquote style={{ margin: '28px 0 0', borderLeft: '3px solid #F5A623', paddingLeft: 24 }}>
             <p style={{ fontSize: 'clamp(1.2rem,2vw,1.6rem)', fontWeight: 700, color: cream(0.85), fontFamily: "'Space Grotesk',sans-serif", lineHeight: 1.4, fontStyle: 'italic' }}>
               "The gap between a forgettable video and a remarkable one isn't budget. It's <span style={{ color: '#F5A623' }}>intention</span>."
@@ -535,7 +535,7 @@ export default function Navbar() {
           <Link to="/" onClick={() => setActiveNav(null)} style={{ display: 'flex', alignItems: 'center', gap: 10, textDecoration: 'none' }}>
             <LogoMark />
             <span style={{ fontFamily: "'Cinzel Decorative', serif", fontWeight: 700, fontSize: '1rem', color: activeNav ? '#FAF4E8' : '#1C1A2E', letterSpacing: '0.04em', transition: 'color 0.3s' }}>
-              PRMINDS
+              VISUALS INFINITE
             </span>
           </Link>
 

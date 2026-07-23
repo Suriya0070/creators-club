@@ -4,14 +4,14 @@ import { AnimatedSection } from '../ui/AnimatedSection'
 import { Plus } from 'lucide-react'
 
 const FAQS = [
-  { q: 'What is your typical turnaround time?', a: '3–5 business days for most projects. Rush delivery (24–48 hours) is available for an additional fee. Complex documentaries or motion graphics projects may take 7–10 days — we agree on timelines upfront during onboarding.' },
-  { q: 'How do I share footage with you?', a: 'We use Google Drive, WeTransfer or Frame.io — whichever you\'re already using. You upload your raw files to a shared folder, along with a brief and any reference videos. We take it from there.' },
-  { q: 'How many revision rounds are included?', a: 'Two rounds of revisions are included in all packages. We use timestamped feedback via Frame.io so changes are precise and efficient. Additional revision rounds are available at ₹500 per round.' },
-  { q: 'Do you work with international clients?', a: 'Yes. We\'re India-based and work fully remotely with clients across the UK, UAE, Nigeria, Singapore and more. Communication is async-first, with scheduled calls available in your timezone.' },
-  { q: 'What formats do you deliver in?', a: 'We deliver platform-optimised MP4 files as standard. For YouTube: 4K/1080p H.264 or H.265. For Instagram/TikTok: vertical 9:16 MP4. Source project files are available on request.' },
-  { q: 'Can I hire you on a monthly retainer?', a: 'Yes — retainer packages are available for creators who need consistent output (4, 8 or 12 videos per month). Retainers include priority turnaround, a dedicated Slack channel and discounted per-video pricing.' },
-  { q: 'Do you also write scripts or create content strategies?', a: 'We focus on post-production. We can review and give hook feedback on your script before you shoot, but we don\'t write scripts as a primary service. We partner with scriptwriters and can refer you if needed.' },
-  { q: 'What if I\'m not happy with the first cut?', a: 'We start every project with a detailed brief and reference review to align on style before cutting a frame. If the first cut misses the mark, we\'ll redo it at no extra charge — your satisfaction is built into the process.' },
+  { q: 'How long until my video is ready?', a: '3–5 business days for most projects. Rush delivery (24–48 hours) is available at an extra fee. For documentaries and complex motion graphics, we agree on the exact timeline before anything starts — so there\'s no surprise.' },
+  { q: 'How do I get my footage to you?', a: 'Google Drive, WeTransfer, or Frame.io — whatever you already use. Drop your files in a shared folder with a quick brief and any reference videos. We take it from there.' },
+  { q: 'What if I want changes?', a: 'Two revision rounds are included in every package. We use timestamped feedback via Frame.io — so "that moment at 1:23" is exact, not approximate. Extra rounds are ₹500 each.' },
+  { q: 'Do you work with creators outside India?', a: 'Yes — we have clients in the UK, UAE, Nigeria, Singapore, and more. We work fully remotely, respond async, and schedule calls in your timezone.' },
+  { q: 'What file formats do you deliver?', a: 'Platform-optimised MP4 as standard. 4K/1080p H.264 for YouTube. Vertical 9:16 for Instagram and TikTok. Source project files available on request.' },
+  { q: 'Can I work with you every month?', a: 'Yes — retainer packages for 4, 8, or 12 videos per month. Priority turnaround, a dedicated Slack channel, and discounted per-video pricing. It\'s how most of our long-term clients work with us.' },
+  { q: 'Do you help with scripts or ideas?', a: 'Post-production is where we live. We\'ll give honest feedback on your hook before you shoot, but script writing isn\'t our primary offer. We can refer you to writers we trust.' },
+  { q: 'What if the first cut misses the mark?', a: 'We align on style, references, and tone before cutting a single frame. If the first cut still misses — we redo it at no charge. Your satisfaction isn\'t a courtesy. It\'s built into how we work.' },
 ]
 
 export default function AgencyFAQ() {
@@ -23,7 +23,7 @@ export default function AgencyFAQ() {
         <AnimatedSection className="mb-14">
           <p className="badge-cyan mb-5">FAQ</p>
           <h2 className="section-heading text-[clamp(2.5rem,5vw,4rem)] text-[#1C1A2E] max-w-xl">
-            Common Questions
+            Everything you want to know before you start.
           </h2>
         </AnimatedSection>
 
@@ -66,14 +66,14 @@ export default function AgencyFAQ() {
 
         <AnimatedSection delay={0.3} className="mt-12">
           <p className="text-[#9896A8] text-sm">
-            Still have questions?{' '}
+            Still not sure?{' '}
             <button
               onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
               className="text-[#1C1A2E] underline underline-offset-2 font-medium"
             >
-              Get in touch
+              Talk to us
             </button>{' '}
-            — we respond within one business day.
+            — we'll give you a straight answer within one business day.
           </p>
         </AnimatedSection>
       </div>

@@ -3,11 +3,11 @@ import { MessageSquare, FileCheck, Clapperboard, RotateCcw, Send, ArrowUpRight }
 import { AnimatedSection } from '../ui/AnimatedSection'
 
 const STEPS = [
-  { icon: MessageSquare, step: '01', title: 'Discovery', desc: 'A 30-minute call to understand your brand, audience, goals and the kind of content you want to produce.' },
-  { icon: FileCheck, step: '02', title: 'Onboarding', desc: 'Share footage, reference links, brand kit and script. We confirm timelines, scope and deliverables in writing.' },
-  { icon: Clapperboard, step: '03', title: 'Production', desc: 'We edit the first cut — pacing, colour, audio, graphics and captions — applying our storytelling framework.' },
-  { icon: RotateCcw, step: '04', title: 'Review', desc: 'Watch and leave timestamped feedback via a shared link. Two revision rounds included at no extra charge.' },
-  { icon: Send, step: '05', title: 'Delivery', desc: 'Final files exported in platform-optimised formats (MP4/MOV). Source files and archives available on request.' },
+  { icon: MessageSquare, step: '01', title: 'We Listen First', desc: 'Before we touch your footage, we understand your audience, goals, and what success looks like for this video. A 30-minute call that changes everything.' },
+  { icon: FileCheck, step: '02', title: 'You Hand It Over', desc: 'Drop your footage, references, and brand kit in a shared folder. We lock in scope and timeline in writing — so nothing is vague and nothing is late.' },
+  { icon: Clapperboard, step: '03', title: 'We Build the Story', desc: 'We edit the first cut from scratch — structure, colour, audio, captions, motion. Applying the narrative framework that keeps people watching.' },
+  { icon: RotateCcw, step: '04', title: 'You Give Feedback, We Execute', desc: 'Watch the cut, leave timestamped notes on a shared link. Two rounds of revisions, included. No extra charges, no arguments.' },
+  { icon: Send, step: '05', title: 'Your Video, Ready to Publish', desc: 'Platform-optimised files, right format for every channel. Upload and go. Source files archived in case you ever need them.' },
 ]
 
 export default function ProcessSection() {
@@ -21,10 +21,10 @@ export default function ProcessSection() {
           <AnimatedSection className="lg:sticky lg:top-32">
             <p className="badge-cyan mb-5" style={{ color: '#F5A623' }}>How It Works</p>
             <h2 className="section-heading text-[clamp(2.5rem,5vw,4rem)] text-white leading-[1.0]">
-              Our 5-Step Process
+              Simple for you. Precise for us.
             </h2>
             <p className="text-white/45 mt-6 max-w-xs text-sm leading-relaxed">
-              Clear, predictable and fully async — so you can focus on creating while we handle editing.
+              You film. We handle everything after that.
             </p>
             <div className="mt-10 space-y-4">
               <div>
@@ -36,7 +36,7 @@ export default function ProcessSection() {
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#F5A623] text-[#1C1A2E] text-sm font-bold hover:bg-[#E09010] transition-all duration-200 mt-2"
                 style={{ fontFamily: "'Space Grotesk', sans-serif" }}
               >
-                Start Your Project <ArrowUpRight className="w-3.5 h-3.5" />
+                Get Started for Free <ArrowUpRight className="w-3.5 h-3.5" />
               </button>
             </div>
           </AnimatedSection>

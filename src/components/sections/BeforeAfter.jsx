@@ -10,7 +10,7 @@ const EXAMPLES = [
       video: '/videos/storytelling-concept-non-edit.mp4',
     },
     after: {
-      title: 'PRMinds Edit',
+      title: 'Visuals Infinite Edit',
       points: ['Colour that sets the emotional tone', 'Sound that holds the listener in', 'Viewers who follow every word', 'Attention that stays all the way through'],
       video: '/videos/storytelling-concept.mp4',
     },
@@ -23,7 +23,7 @@ const EXAMPLES = [
       video: '/videos/editing-reality-non-edit.mp4',
     },
     after: {
-      title: 'PRMinds Edit',
+      title: 'Visuals Infinite Edit',
       points: ['Colour that builds the narrative', 'Transitions that feel inevitable', 'Typography that adds energy', 'Audio mix that makes every word land'],
       video: '/videos/editors-reality.mp4',
     },

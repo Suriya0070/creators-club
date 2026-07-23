@@ -1,7 +1,7 @@
+import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { ArrowUpRight } from 'lucide-react'
 
-// 45 images across 3 columns (15 each)
 const COL1 = [
   'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=300&q=80',
   'https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=300&q=80',
@@ -60,14 +60,43 @@ const COLS = [
   { images: COL3, direction: 'up',   duration: 38 },
 ]
 
+function useIsMobile(breakpoint = 1024) {
+  const [isMobile, setIsMobile] = useState(
+    () => typeof window !== 'undefined' ? window.innerWidth < breakpoint : false
+  )
+  useEffect(() => {
+    const handler = () => setIsMobile(window.innerWidth < breakpoint)
+    window.addEventListener('resize', handler)
+    return () => window.removeEventListener('resize', handler)
+  }, [breakpoint])
+  return isMobile
+}
+
+function ScrollRow({ images, duration, direction = 'left' }) {
+  const doubled = [...images, ...images]
+  return (
+    <div style={{ overflow: 'hidden', flex: 1 }}>
+      <div style={{
+        display: 'flex', gap: '8px', height: '100%',
+        animation: `scroll-${direction} ${duration}s linear infinite`,
+        willChange: 'transform',
+      }}>
+        {doubled.map((src, i) => (
+          <div key={i} style={{ height: '100%', aspectRatio: '1/1', borderRadius: '10px', overflow: 'hidden', flexShrink: 0 }}>
+            <img src={src} alt="" loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+}
+
 function ScrollColumn({ images, direction, duration }) {
   const doubled = [...images, ...images]
   return (
     <div style={{ flex: 1, overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
       <div style={{
-        display: 'flex',
-        flexDirection: 'column',
-        gap: '10px',
+        display: 'flex', flexDirection: 'column', gap: '10px',
         animation: `scroll-${direction} ${duration}s linear infinite`,
         willChange: 'transform',
       }}>
@@ -82,6 +111,7 @@ function ScrollColumn({ images, direction, duration }) {
 }
 
 export default function Hero() {
+  const isMobile = useIsMobile()
   const scrollTo = (id) => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
 
   return (
@@ -95,56 +125,49 @@ export default function Hero() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
       >
-        {/* Warm Pacific light — left background bloom */}
+        {/* Warm background bloom */}
         <div style={{
-          position: 'absolute',
-          bottom: '-15%',
-          left: '-20%',
-          width: '95%',
-          height: '75%',
-          background: 'radial-gradient(ellipse at 35% 60%, rgba(255, 210, 55, 0.22) 0%, rgba(255, 195, 45, 0.09) 45%, transparent 72%)',
-          filter: 'blur(38px)',
-          pointerEvents: 'none',
-          zIndex: 0,
+          position: 'absolute', bottom: '-15%', left: '-20%',
+          width: '95%', height: '75%',
+          background: 'radial-gradient(ellipse at 35% 60%, rgba(255,210,55,0.22) 0%, rgba(255,195,45,0.09) 45%, transparent 72%)',
+          filter: 'blur(38px)', pointerEvents: 'none', zIndex: 0,
         }} />
 
-        <p className="badge-cyan" style={{ marginBottom: '24px', position: 'relative', zIndex: 1 }}>Video Editing Agency</p>
-
-        <h1 className="section-heading" style={{ fontSize: 'clamp(1.85rem, 3vw, 3.5rem)', color: '#1C1A2E', lineHeight: 1.08, position: 'relative', zIndex: 1 }}>
-          Video Editor &<br />
-          Motion Designer<br />
-          for Reels, YouTube<br />
-          Documentaries and<br />
-          2.5D Visual Storytelling
-        </h1>
-
-        <p style={{ color: '#6B6880', fontSize: '1rem', lineHeight: 1.7, marginTop: '24px', maxWidth: '400px', fontFamily: "'DM Sans', sans-serif", position: 'relative', zIndex: 1 }}>
-          We transform raw footage, scripts and ideas into engaging Reels, YouTube videos
-          and documentaries using storytelling, motion graphics, 2.5D animation and
-          professional sound design.
+        <p className="badge-cyan" style={{ marginBottom: '20px', position: 'relative', zIndex: 1 }}>
+          Premium Video Editing Agency
         </p>
 
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', marginTop: '32px', position: 'relative', zIndex: 1 }}>
-          <button onClick={() => scrollTo('showreel')} className="btn-primary">
-            View Our Work <ArrowUpRight style={{ width: 16, height: 16 }} />
+        <h1 style={{
+          position: 'relative', zIndex: 1,
+          fontFamily: "'Space Grotesk', sans-serif",
+          fontWeight: 800,
+          fontSize: 'clamp(2rem, 4vw, 3.4rem)',
+          lineHeight: 1.08,
+          letterSpacing: '-0.025em',
+          color: '#1C1A2E',
+          marginBottom: '18px',
+        }}>
+          The Edit Is Where<br />
+          Creators Become<br />
+          <span style={{ color: '#F5A623' }}>Brands.</span>
+        </h1>
+
+        <p style={{
+          position: 'relative', zIndex: 1,
+          color: '#6B6880', fontSize: '0.88rem', lineHeight: 1.65,
+          maxWidth: '390px', fontFamily: "'DM Sans', sans-serif",
+          marginBottom: '28px',
+        }}>
+          Most creators post videos. We help you build audiences. Premium editing, motion design, and storytelling for the people who are serious about growing — not just posting.
+        </p>
+
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', position: 'relative', zIndex: 1 }}>
+          <button onClick={() => scrollTo('work')} className="btn-primary">
+            See the Results <ArrowUpRight style={{ width: 16, height: 16 }} />
           </button>
           <button onClick={() => scrollTo('contact')} className="btn-outline">
-            Book a Discovery Call
+            Talk to Us — It's Free
           </button>
-        </div>
-
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '28px', marginTop: '40px', paddingTop: '28px', borderTop: '1px solid rgba(28,26,46,0.1)', position: 'relative', zIndex: 1 }}>
-          {[
-            { value: '40+', label: 'Videos Delivered' },
-            { value: '15+', label: 'Motion Projects' },
-            { value: '5+', label: 'Countries Served' },
-            { value: '3–5d', label: 'Turnaround' },
-          ].map((s) => (
-            <div key={s.label}>
-              <div style={{ fontSize: '1.4rem', fontWeight: 700, color: '#1C1A2E', fontFamily: "'Space Grotesk', sans-serif" }}>{s.value}</div>
-              <div style={{ fontSize: '0.6rem', color: '#9896A8', textTransform: 'uppercase', letterSpacing: '0.1em', marginTop: '2px', fontFamily: "'DM Sans', sans-serif" }}>{s.label}</div>
-            </div>
-          ))}
         </div>
       </motion.div>
 
@@ -155,23 +178,25 @@ export default function Hero() {
         animate={{ opacity: 1 }}
         transition={{ duration: 1.0, delay: 0.25 }}
       >
-        {/* Warm Pacific ambient glow — around the image grid */}
         <div style={{
-          position: 'absolute',
-          inset: 0,
-          background: 'radial-gradient(ellipse 85% 75% at 52% 48%, rgba(255, 210, 55, 0.16) 0%, rgba(255, 195, 45, 0.06) 52%, transparent 74%)',
-          pointerEvents: 'none',
-          zIndex: 9,
+          position: 'absolute', inset: 0,
+          background: 'radial-gradient(ellipse 85% 75% at 52% 48%, rgba(255,210,55,0.16) 0%, rgba(255,195,45,0.06) 52%, transparent 74%)',
+          pointerEvents: 'none', zIndex: 9,
         }} />
-
-        {/* Fade overlays */}
         <div style={{ position: 'absolute', left: 0, top: 0, bottom: 0, width: 60, zIndex: 10, background: 'linear-gradient(to right, #FAF4E8 30%, transparent)', pointerEvents: 'none' }} />
         <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 80, zIndex: 10, background: 'linear-gradient(to bottom, #FAF4E8, transparent)', pointerEvents: 'none' }} />
         <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: 80, zIndex: 10, background: 'linear-gradient(to top, #FAF4E8, transparent)', pointerEvents: 'none' }} />
 
-        <div style={{ display: 'flex', gap: '10px', padding: '10px 10px 10px 16px', height: '100%' }}>
-          {COLS.map((col, i) => <ScrollColumn key={i} {...col} />)}
-        </div>
+        {isMobile ? (
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', padding: '12px', height: '100%' }}>
+            <ScrollRow images={COL1} duration={30} direction="left" />
+            <ScrollRow images={COL2} duration={42} direction="right" />
+          </div>
+        ) : (
+          <div style={{ display: 'flex', gap: '10px', padding: '10px 10px 10px 16px', height: '100%' }}>
+            {COLS.map((col, i) => <ScrollColumn key={i} {...col} />)}
+          </div>
+        )}
       </motion.div>
 
     </section>

@@ -490,7 +490,7 @@ function ServiceModal({ service, onClose, onSchedule }) {
             </button>
             <div className="absolute bottom-4 left-5">
               <span className="px-4 py-2 rounded-full text-sm font-bold" style={{ background: '#F5A623', color: '#1C1A2E', fontFamily: "'Space Grotesk', sans-serif" }}>
-                {service.price} {service.unit}
+                Get a Quote →
               </span>
             </div>
           </div>
@@ -602,7 +602,7 @@ function MobileCardStack({ packages, onSelect }) {
               <Star className="absolute top-4 right-4 w-5 h-5 opacity-60" style={{ color: s.text, fill: s.text }} />
               <span className="absolute top-4 left-4 px-3 py-1.5 rounded-full text-xs font-bold"
                 style={{ background: s.bg, color: s.text, fontFamily: "'Space Grotesk', sans-serif" }}>
-                {pkg.price}{pkg.unit.startsWith('/') ? '' : ' '}{pkg.unit}
+                {pkg.title}
               </span>
             </div>
             <div className="p-5 flex flex-col flex-1">
@@ -774,7 +774,7 @@ export default function ServicesAgency() {
                             className="absolute top-4 left-4 px-3 py-1.5 rounded-full text-xs font-bold"
                             style={{ background: style.bg, color: style.text, fontFamily: "'Space Grotesk', sans-serif" }}
                           >
-                            {price}{unit.startsWith('/') ? '' : ' '}{unit}
+                            {title}
                           </span>
                           <div
                             className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200"

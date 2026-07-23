@@ -4,8 +4,8 @@
 
 @layer base {
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
-  body { background-color: #FAF4E8; color: #1C1A2E; font-family: 'DM Sans', system-ui, sans-serif; overflow-x: hidden; }
+  html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; overflow-x: hidden; max-width: 100%; }
+  body { background-color: #FAF4E8; color: #1C1A2E; font-family: 'DM Sans', system-ui, sans-serif; overflow-x: hidden; max-width: 100%; }
   ::selection { background: rgba(245, 166, 35, 0.25); color: #1C1A2E; }
   ::-webkit-scrollbar { width: 6px; }
   ::-webkit-scrollbar-track { background: #F0E8D4; }
@@ -138,6 +138,14 @@
   from { transform: translateY(-50%); }
   to   { transform: translateY(0); }
 }
+@keyframes scroll-left {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@keyframes scroll-right {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
 
 /* ── Hero responsive layout ── */
 .hero-section {
@@ -145,20 +153,24 @@
   flex-direction: column;
   background: #FAF4E8;
   overflow: hidden;
+  height: 100vh;
+  height: 100svh;
 }
 @media (min-width: 1024px) {
   .hero-section {
     display: grid;
     grid-template-columns: 1fr 1fr;
     height: 100vh;
+    height: 100svh;
   }
 }
 
 .hero-left {
+  flex: 0 0 auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 96px 24px 40px 24px;
+  padding: 72px 20px 10px 20px;
   box-sizing: border-box;
 }
 @media (min-width: 640px) {
@@ -168,6 +180,7 @@
 }
 @media (min-width: 1024px) {
   .hero-left {
+    flex: none;
     height: 100%;
     padding: 100px 56px 48px 56px;
   }
@@ -176,13 +189,12 @@
 .hero-right {
   position: relative;
   overflow: hidden;
-  height: 60vw;
-  min-height: 280px;
-  max-height: 480px;
+  flex: 1;
+  min-height: 160px;
 }
 @media (min-width: 1024px) {
   .hero-right {
+    flex: none;
     height: 100%;
-    max-height: none;
   }
 }

@@ -47,7 +47,9 @@ function CourseCard({ course }) {
 
 export default function Dashboard() {
   const [activeSection, setActiveSection] = useState('overview')
-  const { user, logout } = useAuth()
+  const [profileForm, setProfileForm] = useState({ name: '', phone: '' })
+  const [savingProfile, setSavingProfile] = useState(false)
+  const { user, logout, updateUser } = useAuth()
   const toast = useToast()
   const navigate = useNavigate()
 
@@ -59,6 +61,18 @@ export default function Dashboard() {
     logout()
     toast.success('Logged out. See you soon!')
     navigate('/')
+  }
+
+  const handleProfileSave = async () => {
+    setSavingProfile(true)
+    try {
+      await updateUser({ name: profileForm.name || user?.name, phone: profileForm.phone ?? user?.phone })
+      toast.success('Profile updated!')
+    } catch (err) {
+      toast.error(err.message)
+    } finally {
+      setSavingProfile(false)
+    }
   }
 
   const renderContent = () => {
@@ -214,7 +228,11 @@ export default function Dashboard() {
               <div className="space-y-3">
                 <div>
                   <label className="block text-xs font-semibold text-white/50 uppercase tracking-wider mb-1.5">Full Name</label>
-                  <input className="input-field" defaultValue={user?.name} />
+                  <input
+                    className="input-field"
+                    value={profileForm.name || user?.name || ''}
+                    onChange={e => setProfileForm(f => ({ ...f, name: e.target.value }))}
+                  />
                 </div>
                 <div>
                   <label className="block text-xs font-semibold text-white/50 uppercase tracking-wider mb-1.5">Email</label>
@@ -222,9 +240,20 @@ export default function Dashboard() {
                 </div>
                 <div>
                   <label className="block text-xs font-semibold text-white/50 uppercase tracking-wider mb-1.5">Phone</label>
-                  <input className="input-field" defaultValue={user?.phone} placeholder="+91 xxxxx xxxxx" />
+                  <input
+                    className="input-field"
+                    value={profileForm.phone !== '' ? profileForm.phone : (user?.phone || '')}
+                    onChange={e => setProfileForm(f => ({ ...f, phone: e.target.value }))}
+                    placeholder="+91 xxxxx xxxxx"
+                  />
                 </div>
-                <button className="btn-primary w-full justify-center py-2.5 text-sm mt-2">Save Changes</button>
+                <button
+                  onClick={handleProfileSave}
+                  disabled={savingProfile}
+                  className="btn-primary w-full justify-center py-2.5 text-sm mt-2"
+                >
+                  {savingProfile ? 'Saving...' : 'Save Changes'}
+                </button>
               </div>
             </div>
           </div>

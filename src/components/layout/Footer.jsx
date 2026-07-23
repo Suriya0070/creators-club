@@ -34,7 +34,7 @@ const LINKS = {
     { label: 'Brand Films',           href: '/#services' },
   ],
   'Company': [
-    { label: 'Our Work',   href: '/#showreel' },
+    { label: 'Our Work',   href: '/#work' },
     { label: 'Process',    href: '/#process' },
     { label: 'About',      href: '/#about' },
     { label: 'Contact',    href: '/#contact' },
@@ -62,11 +62,11 @@ export default function Footer() {
             <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 16 }}>
               <LogoMark />
               <span style={{ fontFamily: "'Cinzel Decorative', serif", fontWeight: 700, fontSize: '0.95rem', color: '#FAF4E8', letterSpacing: '0.04em' }}>
-                PRMINDS
+                VISUALS INFINITE
               </span>
             </div>
             <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '0.875rem', color: 'rgba(250,244,232,0.5)', lineHeight: 1.7, maxWidth: 240, marginBottom: 24 }}>
-              Video editing & motion design studio for creators and brands who want results.
+              We turn recordings into stories. Stories into audiences.
             </p>
             <div style={{ display: 'flex', gap: 10 }}>
               {[
@@ -133,7 +133,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div style={{ borderTop: '1px solid rgba(250,244,232,0.08)', paddingTop: 24, display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between', gap: 12 }}>
           <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: '0.8rem', color: 'rgba(250,244,232,0.3)' }}>
-            © 2025 PRMinds. All rights reserved.
+            © 2026 Visuals Infinite. All rights reserved.
           </p>
           <button
             onClick={() => scrollTo('/#contact')}
@@ -149,6 +149,7 @@ export default function Footer() {
             onMouseLeave={e => e.currentTarget.style.background = '#F5A623'}
           >
             START A PROJECT <ArrowUpRight style={{ width: 13, height: 13 }} />
+
           </button>
         </div>
       </div>

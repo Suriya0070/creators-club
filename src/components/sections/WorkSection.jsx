@@ -292,8 +292,10 @@ function VideoProjectCard({ project, index }) {
     setHovered(true)
     if (videoRef.current) {
       videoRef.current.currentTime = 0
+      videoRef.current.muted = false
       videoRef.current.play().catch(() => {})
     }
+    setMuted(false)
   }
 
   const handleMouseLeave = () => {
@@ -301,7 +303,9 @@ function VideoProjectCard({ project, index }) {
     if (videoRef.current) {
       videoRef.current.pause()
       videoRef.current.currentTime = 0
+      videoRef.current.muted = true
     }
+    setMuted(true)
   }
 
   const toggleMute = (e) => {
@@ -396,7 +400,7 @@ export default function WorkSection() {
   const filtered = active === 'All' ? PROJECTS : PROJECTS.filter(p => p.type === active)
 
   return (
-    <section id="work" style={{ background: '#FAF4E8', paddingTop: 80, paddingBottom: 96 }}>
+    <section id="work" style={{ background: '#FAF4E8', paddingTop: 80, paddingBottom: 96, overflowX: 'hidden' }}>
       <div className="max-w-[1400px] mx-auto px-6 sm:px-10">
 
         {/* ── 1. Who We Work With ──────────────────────────────── */}
